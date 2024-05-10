@@ -4,7 +4,6 @@ Create clear, step-by-step visualizations to enhance your teaching and explanati
 
 
 
-:::{style="width:70%; float:left;"}
 
 __Key Features:__
 
@@ -13,16 +12,11 @@ __Key Features:__
 - Supports step-by-step animations and transitions.
 - Plots curves, points, filled areas and annotations.
 
-:::
-
-
-:::{style="width:30%; float:right"}
 
 ![](example.gif)
 
-:::
 
-## Installing {style="clear:both;"}
+## Installing 
 
 _TODO_: Replace the `<github-organization>` with your GitHub organization.
 
@@ -69,24 +63,6 @@ format:
   - Create a span within `div.animategraph` with class __setAttribute__ to appearance of an element.
 
 
-:::: {.columns style="width:100%;"}
-
-::: {.column  style="width:45%;margin-left:2.5%;"}
-[HTML]{style="text-align:center; display:block;"}
-```{verbatim}
-<div class="animategraph">
-
-  <span class="addElement" required-attributes > </span>
-  <span class="move" required-attributes > </span>
-  <span class="setAttribute" required-attributes > </span>
-
-</div>
-```
-
-:::
-
-::: {.column  style="width:45%;margin-left:2.5%;"}
-[Markdown]{style="text-align:center; display:block;"}
 
 
 ```{verbatim}
@@ -97,13 +73,8 @@ format:
 []{.setAttribute required-attributes}
 
 :::
-
 ```
 
-
-:::
-
-::::
 
 
 
