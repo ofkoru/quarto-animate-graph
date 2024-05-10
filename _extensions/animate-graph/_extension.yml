@@ -1,0 +1,12 @@
+title: Animate Graph
+author: First Last
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  revealjs-plugins:
+    - name: RevealAnimategraph
+      script:
+        - animate-graph.js
+      stylesheet:
+        - animate-graph.css
+
