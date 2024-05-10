@@ -1,6 +1,6 @@
 # Animate-graph Extension For Quarto
 
-Create clear, step-by-step visualizations to enhance your teaching and explanations in [Reveal.js](https://revealjs.com/) without any coding knowledge. By defining HTML elements with specific attributes, such as divs and spans, users can specify data and customize visual elements. The package automatically converts these elements into SVG elements using [D3.js](https://d3js.org/), enabling smooth transitions and animations. It can plot curves, points and filled areas along with annotations and animate their transitions (position or appearance) syncranized with Reveal.js fragments. All you need to know is [how to add divs and spans](https://quarto.org/docs/authoring/markdown-basics.html#sec-divs-and-spans) in your [Quarto](https://quarto.org/) document.
+Create clear, step-by-step visualizations to enhance your teaching and explanations in [Reveal.js](https://revealjs.com/) without any coding knowledge. By defining HTML elements with specific attributes, such as divs and spans, users can specify data and customize visual elements. The package automatically converts these elements into SVG elements using [D3.js](https://d3js.org/), enabling smooth transitions and animations. It can plot curves, points, and filled areas along with annotations and animate their transitions (position or appearance) synchronized with Reveal.js fragments. All you need to know is [how to add divs and spans](https://quarto.org/docs/authoring/markdown-basics.html#sec-divs-and-spans) in your [Quarto](https://quarto.org/) document.
 
 
 
@@ -10,7 +10,7 @@ __Key Features:__
 - Simplified integration with Reveal.js presentations.
 - No coding required; users define visual elements using HTML attributes.
 - Supports step-by-step animations and transitions.
-- Plots curves, points, filled areas and annotations.
+- Plots curves, points, filled areas, and annotations.
 
 
 ![](example.gif)
@@ -29,7 +29,7 @@ This will install the extension under the `_extensions` subdirectory.
 ## Enabling
 
 
-This package depends on [D3.js](https://d3js.org/), you need to load it too. 
+This package depends on [D3.js](https://d3js.org/); it must be loaded along with the plug in utilizing `include-in-header`. 
 To use the extension, add the following to your document's front matter:
 
 ```yaml
@@ -41,7 +41,7 @@ revealjs-plugins:
   - animate-graph-revealjs
 ```
 
-If you want to render math expressions, you also need to use Katex for math method:
+If you want to render math expressions, you also need to use Katex for the math method:
 
 ```yaml
 format:
@@ -56,11 +56,11 @@ format:
 
 - There are four main components of this plug in:
   - `graph`, `element`, `move`, and `setAttribute`.
-- To generate animated graph:
+- To generate an animated graph:
   - Create a div with class __animategraph__.
-  - Create a span within `div.animategraph` with class __addElement__ to add element.
-  - Create a span within `div.animategraph` with class __move__ to change position of an element.
-  - Create a span within `div.animategraph` with class __setAttribute__ to appearance of an element.
+  - Create a span within `div.animategraph` with class __addElement__ to add an element.
+  - Create a span within `div.animategraph` with class __move__ to change the position of an element.
+  - Create a span within `div.animategraph` with class __setAttribute__ to the appearance of an element.
 
 
 
