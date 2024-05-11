@@ -1,31 +1,41 @@
 ---
 title: "Animate-graph Example"
 format:
-  revealjs: default
+  revealjs: 
+    controls: true
+    controls-layout: bottom-right
+    width: 1920
+    height: 1280
+    html-math-method: katex
+    include-in-header: 
+      - text: '<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>'
 revealjs-plugins:
   - animate-graph
 ---
 
-# In the morning
 
-## Getting up
+## Example
 
-- Turn off alarm
-- Get out of bed
+:::{.animategraph style="height:70%;width:70%;" }
 
-## Breakfast
 
-- Eat eggs
-- Drink coffee
+[]{ .addElement type='line' var-x='quantity' var-y='supply'  }
+[]{ .addElement type='line' var-x='quantity' var-y='demand' id='demand' index=0 } 
+[]{ .addElement type='point' var-x='2.5' var-y='2.5' id='equilibrium' index=1   lines="true" }
+[]{ .addElement type='tick' var-x='2.5' label-x="$q^\\star$" var-y='2.5' label-y="$p^\\star$"  index=2 }
+[]{ .addElement type='area' var-x='quantity' var-y0='supply' var-y1='demand' index=3 id='surplus'  }
+[]{ .addElement type='text' var-x='1.25' var-y='2.5' text="Total Surplus" index=3   }
+[]{ .move var-x='quantity' var-y='demand_right' id='demand' index=4  }
+[]{ .move var-x='3' var-y='3' id='equilibrium' index=5  }
+[]{ .addElement type='tick' var-x='3' label-x="$q^{\\star}_{new}$" var-y='3' label-y="$p^\\star_{new}$"  index=6 }
+[]{ .move id='surplus' var-x='quantity' var-y0='supply' var-y1='demand_right' index=7  }
+[]{ .setAttribute id='demand' color="red" index=8}
+[]{ .setAttribute id='equilibrium' size="20" index=9}
 
-# In the evening
 
-## Dinner
+:::
 
-- Eat spaghetti
-- Drink wine
 
-## Going to sleep
 
-- Get in bed
-- Count sheep
+
+

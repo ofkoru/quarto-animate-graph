@@ -3,6 +3,7 @@
 Create clear, step-by-step visualizations to enhance your teaching and explanations in [Reveal.js](https://revealjs.com/) without any coding knowledge. By defining HTML elements with specific attributes, such as divs and spans, users can specify data and customize visual elements. The package automatically converts these elements into SVG elements using [D3.js](https://d3js.org/), enabling smooth transitions and animations. It can plot curves, points, and filled areas along with annotations and animate their transitions (position or appearance) synchronized with Reveal.js fragments. All you need to know is [how to add divs and spans](https://quarto.org/docs/authoring/markdown-basics.html#sec-divs-and-spans) in your [Quarto](https://quarto.org/) document.
 
 
+You can check the [minimal example](https://omerfarukkoru.com/Packages/quarto-animate-graph/documentation/slides/example.html), [slides](https://omerfarukkoru.com/Packages/quarto-animate-graph/documentation/slides/slides.html) with more detailed explanatins, or the [full documentation](https://omerfarukkoru.com/Packages/quarto-animate-graph/documentation/documentation.html).
 
 
 __Key Features:__
@@ -81,7 +82,7 @@ format:
 - The plug in comes with a predefined data named `econ`.
   - It is the default data for the graph. 
     - See [`econ` Dataset](#econ-dataset) section below for the list of variables available.
-  - To `define a` new data, please see [Defining Data](#defining-data) section below.
+  - To define a new data, please see [Defining Data](#defining-data) section below.
   
 
 ### A Basic Usage Using the Default Data
@@ -160,3 +161,14 @@ format:
 
 ```
 
+![](assets/example.gif)
+
+You may check the [working version](https://omerfarukkoru.com/Packages/quarto-animate-graph/documentation/slides/example.html).
+
+
+## More Information
+
+For more information, please see
+
+- [slides](https://omerfarukkoru.com/Packages/quarto-animate-graph/documentation/slides/slides.html) with more detailed explanatins, or
+- the [full documentation](https://omerfarukkoru.com/Packages/quarto-animate-graph/documentation/documentation.html).
