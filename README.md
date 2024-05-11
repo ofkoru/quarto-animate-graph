@@ -13,7 +13,7 @@ __Key Features:__
 - Plots curves, points, filled areas, and annotations.
 
 
-![](example.gif)
+![](assets/example.gif)
 
 
 ## Installing 
@@ -38,7 +38,7 @@ format:
     include-in-header: 
       - text: '<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>'
 revealjs-plugins:
-  - animate-graph-revealjs
+  - animate-graph
 ```
 
 If you want to render math expressions, you also need to use Katex for the math method:
