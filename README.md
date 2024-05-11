@@ -18,10 +18,8 @@ __Key Features:__
 
 ## Installing 
 
-_TODO_: Replace the `<github-organization>` with your GitHub organization.
-
 ```bash
-quarto add <github-organization>/animate-graph-revealjs
+quarto add ofkoru/quarto-animate-graph
 ```
 
 This will install the extension under the `_extensions` subdirectory.
