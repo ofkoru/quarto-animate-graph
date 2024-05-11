@@ -14,7 +14,6 @@ __Key Features:__
 - Plots curves, points, filled areas, and annotations.
 
 
-![](assets/example.gif)
 
 
 ## Installing 
