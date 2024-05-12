@@ -14,7 +14,7 @@ __Key Features:__
 - Plots curves, points, filled areas, and annotations.
 
 
-
+![](assets/example.gif)
 
 ## Installing 
 
@@ -82,59 +82,90 @@ format:
   - To define a new data, please see [Defining Data](#defining-data) section below.
   
 
-### A Basic Usage Using the Default Data
+### Required Attributes
 
-1. Define a div with class _animategraph_.
+- Required attributes for `addElement`.
+  - `type`: type of the element. Possible values: `line`, `points`, `area`, `text`, `tick`.
+  - `id`: required if it will be modified by `move` or `setAttribute` later.
+  
+- Required attributes for type `line`:
+  - `var-x` and `var-y`: three possibilities:
+    1. Both are variable names in `df`. 
+    2. One is variable name, the other one is single number for constant value. If `var-x` is constant, it is a vertical line. If `var-y` is constant then it is a horizontal line.
+    3. Both are semicolon separated two numbers to draw straight line (var-x='number1; number2', var-y='number3;number4'). A line is drawn between (number1, number3) and (number2,number4).
+  - Example
 ```{.markdown}
-:::{.animategraph}
-
-:::
+[]{ .addElement type='line' var-x='quantity' var-y='demand'}
 ```
 
-2. Define an element within this div using the following template (all fields are required, except _id_):
-
-- For `line`:
+- Required attributes for type `point`:
+  - `var-x` and `var-y`: two possibilities:
+    1. Both are single number. A point is drawn at the coordinate. 
+    2. Both are variable name in `df`. A point is drawn at the first intersection of two lines.
+  - Example
+```{.markdown}
+[]{ .addElement type='point' var-x='quantity' var-y='demand; supply'}
+[]{ .addElement type='point' var-x='2' var-y='5'}
+```    
     
+- Required attributes for type `area`:
+  - `var-x`: A variable name in `df`.
+  - `var-y`: 
+    1. Both of them are variable names. The area between the two lines is filled.
+    2. One of them is a variable, and the other one is a single number. The area between the line and the horizontal line is filled.
+    3. Both of them are number. Area between two horizontal line is filled.
+  - Example
 ```{.markdown}
-[]{ .addElement type='line' var-x='name of the variable x' var-y='name of the variable y' id="name of the element"}
-```
-
-- For `point`:
+[]{ .addElement type='area' var-x='quantity' var-y='demand; supply'}
+``` 
     
+- Required attributes for type `text`:
+  - `var-x` and `var-y`: Both must be a single number. Coordinates for the text element.
+  - `text`: Text to be printed on the graph.
+  - Example
 ```{.markdown}
-[]{ .addElement type='point' var-x='x coordinate' var-y='y coordinate' id="name of the element"}
+[]{ .addElement type='text' var-x='5' var-y='2' text='Consumer Surplus'}
 ```
 
-- For `area`:
-
+- Required attributes for type `tick`:
+  - `var-x` and/or `var-y`: Semicolon separated numbers. Values for the position of ticks on x and y axes, respectively.
+  - `label-x` and/or `label-y`: Labels to be printed on values.
+  - Example
 ```{.markdown}
-[]{ .addElement type='area' var-x='name of the variable x' var-y0='name of the first y variable' var-y1='name of the second y variable' id="name of the element"}
-```
+[]{ .addElement type='tick' var-x='2.5' label-x='$q^\\star$'}
+```   
 
-- For `text`:
+
+- Required attributes for `move`:
+  - `id`: id of the element to be moved.
+  - `var-x` and `var-y`: New position of the element `id`.
+  - `index`: Fragment when the movement will happen.
+  - Example
 ```{.markdown}
-[]{ .addElement type='text' var-x='x coordinate' var-y='y coordinate' text='text to be printed' id="name of the element"}
-```
-
-- For `ticks`:
-
-```{.markdown}
-[]{ .addElement type='tick' var-x='position of ticks on x axis' label-x='text to be printed on these positions' var-y='position of ticks on x axis' label-y='text to be printed on these positions' id="name of the element"}
+[]{ .move id='demand' var-x='quantity' var-y='demand_right'}
 ```
   
-- There are few alterations to these required fields, which explained in below.
-- Id is not required to generate an element, but it is required to change position or appearance. 
-  
-3. Specify a movement within `div.animategraph` using the following template (all fields are required):
+- Required attributes for `setAttribute`:
+  - `id`: id of the element to be moved.
+  - A set of	attributes to be passed to the SVG element for styling (color, width, etc.).
+  - Example 
 ```{.markdown}
-[]{ .move var-x='new x variable' var-y='new y variable' index='when the action will happen'  id="name of the element"}
-```
+[]{ .setAttribute id='demand' color="red"}
+```   
+- For optional attributes, see the [full documentation](https://omerfarukkoru.com/Packages/quarto-animate-graph/documentation/documentation.html).
 
-4. Specify a change in appearance within `div.animategraph` using the following template:
-```{.markdown}
-[]{ .setAttribute attributeA="value of attribute A" style="css style" index='when the change will happen'  id='name of the element'}
-```
 
+### `econ` Dataset
+
+`econ` dataset allows users to draw supply and demand curves. Below is the name of the variables available in the dataset. Deman is actually an _inverse_ demand (price as a function of quantity).
+
+- `quantity`: equally spaced grid on the x-axis between 0 and 5.
+- `demand`: downward sloping linear line. 
+- `supply`: upward-sloping linear line. 
+- `demandCurve`: downward sloping convex function. 
+- `supplyCurve`: upward sloping convex function.
+- `*_right`: right-shifted version of demand and supply `*` can be supply, demand, supplyCurve or demandCurve.
+- `*_left`: left-shifted version of demand and supply (linear or curved).
 
 ## Minimal Example
 
@@ -158,9 +189,9 @@ format:
 
 ```
 
-![](assets/example.gif)
-
 You may check the [working version](https://omerfarukkoru.com/Packages/quarto-animate-graph/documentation/slides/example.html).
+
+
 
 
 ## More Information
